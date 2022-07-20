@@ -11,7 +11,7 @@ import axios from "axios"
 const Update = () => {
     const [name, setName] = useState("")
     const [errors, setErrors] = useState([])
-    const {id} = useParams()
+    const {id} = useParams() // id from URL
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Update = () => {
 
     const handleSubmit =(e) =>{
         e.preventDefault()
-        // need to give for the req.body in the update function in the backend controller.
+        // need to give for the req.body in the update function in the backend controller. It will run through validations and if what is sent does not meet the validations, .catch with .status(400) will be sent back here to the frontend.
         axios.put(`http://localhost:8000/api/authors/${id}/edit`, {name})
             .then(res=>navigate("/"))
             .catch(err=>{

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 // 2. store info with useState
 
 const DisplayTable = (props) => {
-    const {authorlist, removeFromAuthor} = props
+    const {authorlist, removeFromAuthor} = props // from parent
 
     const handleDelete = (deleteId) => {
         // notes from lecture:

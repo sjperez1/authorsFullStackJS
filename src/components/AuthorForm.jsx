@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom"
 // optional: redirect: useNavigate
 import {Link} from "react-router-dom"
 
-const AuthorForm = (props) => {
+const AuthorForm = () => {
     const [name, setName] = useState("")
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()

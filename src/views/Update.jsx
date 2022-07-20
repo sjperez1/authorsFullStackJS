@@ -29,10 +29,10 @@ const Update = () => {
         axios.put(`http://localhost:8000/api/authors/${id}/edit`, {name})
             .then(res=>navigate("/"))
             .catch(err=>{
-                const errMsgArr = []
-                const errResponse = err.response.data.errors
-                for(const eachKey in errResponse) {
-                    errMsgArr.push(errResponse[eachKey].message)
+                const errMsgArr = [] // empty array to hold error messages
+                const errResponse = err.response.data.errors // err.response.data.errors is the path that we take through the error response to get to the dictionaries that hold all of the information of each error.
+                for(const eachKey in errResponse) { // eachKey is represents each dictionary in the errResponse that shows a dictionary for each error.
+                    errMsgArr.push(errResponse[eachKey].message) // for each errResponse dictionary, we want to target specifically the value that is associated with the message key to present to client. Push the messages to the array so that we can set errors as this new array.
                 }
                 setErrors(errMsgArr)
                 console.log(err) // .catch is unsuccessful
